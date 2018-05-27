@@ -10,6 +10,7 @@
     "prop-types": "^15.6.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
+    "react-google-charts": "^1.6.6",
     "react_ujs": "^2.4.4",
     "ts-loader": "3.5.0",
     "typescript": "^2.8.3"
