@@ -1,0 +1,2 @@
+module Cnn::ModelsHelper
+end
