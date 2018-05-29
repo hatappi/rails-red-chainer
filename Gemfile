@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'action_args'
+gem 'kaminari'
 gem 'rails', '~> 5.1.6'
 gem 'mysql2', '>= 0.3.18', '< 0.6.0'
 gem 'puma', '~> 3.7'
@@ -15,7 +17,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'react-rails'
-gem 'red-chainer'
+gem 'red-chainer', github: 'hatappi/red-chainer', branch: 'feature/resnet-18'
 gem 'red-datasets'
 gem 'rmagick'
 
