@@ -46,6 +46,7 @@ GEM
     bindex (0.5.0)
     builder (3.2.3)
     byebug (10.0.2)
+    coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -84,6 +85,15 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
+    numo-narray (0.9.1.2)
+    pry (0.11.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
+    pry-byebug (3.6.0)
+      byebug (~> 10.0)
+      pry (~> 0.10)
+    pry-rails (0.3.6)
+      pry (>= 0.10.4)
     puma (3.11.4)
     rack (2.0.5)
     rack-proxy (0.6.4)
@@ -123,6 +133,11 @@ GEM
       execjs
       railties (>= 3.2)
       tilt
+    red-chainer (0.3.0)
+      numo-narray (>= 0.9.1.1)
+      red-datasets
+    red-datasets (0.0.4)
+    rmagick (2.16.0)
     ruby_dep (1.5.0)
     sass (3.5.6)
       sass-listen (~> 4.0.0)
@@ -179,9 +194,14 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   mysql2 (>= 0.3.18, < 0.6.0)
+  pry-byebug
+  pry-rails
   puma (~> 3.7)
   rails (~> 5.1.6)
   react-rails
+  red-chainer
+  red-datasets
+  rmagick
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
