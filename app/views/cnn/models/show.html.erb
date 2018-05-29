@@ -1,0 +1,21 @@
+<section class="hero is-info">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title"><%= @model_name %>: <%= @epoch %>epoch</h1>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+    <%= paginate @logs, param_name: "epoch" %>
+    <% @images_by_label.each do |label_name, images| %>
+      <h1 class="title"><%= label_name %></h1>
+      <% images.shift(@limit.to_i).each do |image| %>
+        <img class="<%= image.to_s.end_with?('_1.jpg') ? "is-correct" : "is-incorrect" %>" src="/<%= image.relative_path_from(Rails.public_path)  %>" />
+      <% end %>
+    <% end %>
+  </div>
+</section>
+

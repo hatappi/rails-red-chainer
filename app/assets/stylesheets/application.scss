@@ -1,1 +1,9 @@
 @import 'bulma/bulma';
+
+.is-correct {
+  border: 3px #00ff30 solid;
+}
+
+.is-incorrect {
+  border: 3px #ff0000 solid;
+}

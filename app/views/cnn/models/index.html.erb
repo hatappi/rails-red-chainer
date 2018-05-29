@@ -1,12 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<h1>CNN Models</h1>
+<section class="section">
+  <div class="container">
+    <%= link_to cnn_model_path('vgg') do %>
+      <h1 class="title">VGG</h1>
+    <% end %>
+    <div class="columns">
+      <div class="column">
+        <h2 class="subtitle">Accuracy</h2>
+        <%= react_component("DrawChart", data: @vgg_accuracies) %>
+      </div>
+      <div class="column">
+        <h2 class="subtitle">Loss</h2>
+        <%= react_component("DrawChart", data: @vgg_losses) %>
+      </div>
+    </div>
 
-<a class="button is-primary">Primary</a>
-<a class="button is-link">Link</a>
-<a class="button is-info">Info</a>
-<a class="button is-success">Success</a>
-<a class="button is-warning">Warning</a>
-<a class="button is-danger">Danger</a>
-
-<%= react_component("DrawChart") %>
+    <%= link_to cnn_model_path('resnet-18') do %>
+      <h1 class="title">ResNet-18</h1>
+    <% end %>
+    <div class="columns">
+      <div class="column">
+        <h2 class="subtitle">Accuracy</h2>
+        <%= react_component("DrawChart", data: @resnet18_accuracies) %>
+      </div>
+      <div class="column">
+        <h2 class="subtitle">Loss</h2>
+        <%= react_component("DrawChart", data: @resnet18_losses) %>
+      </div>
+    </div>
+  </div>
+</section>

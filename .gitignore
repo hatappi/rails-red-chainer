@@ -22,3 +22,12 @@
 /node_modules
 yarn-debug.log*
 .yarn-integrity
+
+# output image
+/public/cifar10
+
+# data
+/data/resnet-18/*
+!/data/resnet-18/.keep
+/data/vgg/*
+!/data/vgg/.keep
