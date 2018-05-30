@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root 'cnn/models#index'
   namespace :cnn do
-    resources :models, param: :model_name
+    resources :models, param: :model_name, only: %i(index show)
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
