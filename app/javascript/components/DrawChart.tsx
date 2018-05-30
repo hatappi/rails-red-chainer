@@ -1,9 +1,11 @@
 import * as React from "react";
-import { Chart } from 'react-google-charts';
+import { Line } from 'react-chartjs';
 
 interface Props {
   data: any;
+  labels: any;
   series: any;
+  color: string,
 }
 
 class DrawChart extends React.Component<Props, any> {
@@ -12,28 +14,18 @@ class DrawChart extends React.Component<Props, any> {
   }
 
   render() {
-    let gridlines = (this.props.data.length - 2) / 3
-    if (gridlines <= 0) {
-      gridlines = 1
-    }
+    var data = {
+	labels: this.props.labels,
+	datasets: [
+		{
+                        fillColor: this.props.color,
+			data: this.props.data,
+		}
+	],
+    };
     return (
       <div className={'my-pretty-chart-container'}>
-        <Chart
-          chartType="AreaChart"
-          data={this.props.data}
-          options={{
-            legend: 'none',
-            hAxis: {
-              minValue: 1,
-              gridlines: {
-                count: 1
-              }
-            },
-            series: this.props.series
-          }}
-          width="100%"
-          height="400px"
-        />
+        <Line data={data} options={{ datasetFill: true, pointDot: true }} width="600" height="250"/>
       </div>
     );
   }

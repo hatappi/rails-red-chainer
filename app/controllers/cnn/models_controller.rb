@@ -3,16 +3,14 @@ class Cnn::ModelsController < ApplicationController
   # GET /cnn/models.json
   def index
     logs = RedChainer::Log.load_from_log(Rails.root.join("data/vgg/log"))
-    vgg_accuracies = logs.map { |log| [log.epoch, log.main_accuracy] }
-    @vgg_accuracies = [%w(epoch, accuracy)] + vgg_accuracies
-    vgg_losses = logs.map { |log| [log.epoch, log.main_loss] }
-    @vgg_losses = [%w(epoch, loss)] + vgg_losses
+    @vgg_epochs = logs.map(&:epoch)
+    @vgg_accuracies = logs.map(&:main_accuracy)
+    @vgg_losses = logs.map(&:main_loss)
 
     logs = RedChainer::Log.load_from_log(Rails.root.join("data/resnet-18/log"))
-    resnet18_accuracies = logs.map { |log| [log.epoch, log.main_accuracy] }
-    @resnet18_accuracies = [%w(epoch, accuracy)] + resnet18_accuracies
-    resnet18_losses = logs.map { |log| [log.epoch, log.main_loss] }
-    @resnet18_losses = [%w(epoch, loss)] + resnet18_losses
+    @resnet18_epochs = logs.map(&:epoch)
+    @resnet18_accuracies = logs.map(&:main_accuracy)
+    @resnet18_losses = logs.map(&:main_loss)
   end
 
   def show(model_name:, epoch: 1, limit: 50)
