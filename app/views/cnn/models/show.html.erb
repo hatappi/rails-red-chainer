@@ -1,7 +1,8 @@
 <section class="hero is-info">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title"><%= @model_name %>: <%= @epoch %>epoch</h1>
+      <h1 class="title"><%= @model_name %></h1>
+      <h2 class="subtitle">epoch: <%= @log.epoch %>, accuracy: <%= @log.main_accuracy.floor(4) %>, loss: <%= @log.main_loss.floor(4) %></h2>
     </div>
   </div>
 </section>
@@ -16,6 +17,7 @@
         <img class="<%= image.to_s.end_with?('_1.jpg') ? "is-correct" : "is-incorrect" %>" src="/<%= image.relative_path_from(Rails.public_path)  %>" />
       <% end %>
     <% end %>
+    <%= paginate @logs, param_name: "epoch" %>
   </div>
 </section>
 

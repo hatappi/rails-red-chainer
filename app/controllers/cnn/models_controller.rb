@@ -18,8 +18,8 @@ class Cnn::ModelsController < ApplicationController
   def show(model_name:, epoch: 1, limit: 50)
     logs = RedChainer::Log.load_from_log(Rails.root.join("data/#{model_name}/log"))
     @logs = Kaminari.paginate_array(logs).page(epoch).per(1)
-    log = @logs.first
-    dir = Rails.public_path.join("cifar10/#{model_name}/snapshot_iter_#{log.iteration}")
+    @log = @logs.first
+    dir = Rails.public_path.join("cifar10/#{model_name}/snapshot_iter_#{@log.iteration}")
     files = dir.glob('*/**')
     @images_by_label = files.group_by { |file| file.to_s.match(%{#{dir}/([^/]+)/})[1] }
     @limit = limit

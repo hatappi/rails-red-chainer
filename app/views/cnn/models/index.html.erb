@@ -8,11 +8,11 @@
     <div class="columns">
       <div class="column">
         <h2 class="subtitle">Accuracy</h2>
-        <%= react_component("DrawChart", data: @vgg_accuracies) %>
+        <%= react_component("DrawChart", data: @vgg_accuracies, series: { "0": { color: '#4ffd67' } }) %>
       </div>
       <div class="column">
         <h2 class="subtitle">Loss</h2>
-        <%= react_component("DrawChart", data: @vgg_losses) %>
+        <%= react_component("DrawChart", data: @vgg_losses, series: { "0": { color: '#fd4f4f' } }) %>
       </div>
     </div>
 
@@ -22,11 +22,11 @@
     <div class="columns">
       <div class="column">
         <h2 class="subtitle">Accuracy</h2>
-        <%= react_component("DrawChart", data: @resnet18_accuracies) %>
+        <%= react_component("DrawChart", data: @resnet18_accuracies, series: { "0": { color: '#4ffd67' } }) %>
       </div>
       <div class="column">
         <h2 class="subtitle">Loss</h2>
-        <%= react_component("DrawChart", data: @resnet18_losses) %>
+        <%= react_component("DrawChart", data: @resnet18_losses, series: { "0": { color: '#fd4f4f' } }) %>
       </div>
     </div>
   </div>
